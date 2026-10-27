@@ -202,21 +202,19 @@ npm run dev
 
 ---
 
-## 📡 Key API Routes
 
-| Endpoint | Method | Description |
-| :--- | :--- | :--- |
-| `/api/auth/login` | `POST` | User authentication & JWT issuance |
-| `/api/menu` | `GET`, `POST` | Fetch menu items or add dishes |
-| `/api/orders` | `GET`, `POST` | Retrieve active orders or create a dining order |
-| `/api/orders/:id/status` | `PUT` | Update order progression status |
-| `/api/tables` | `GET`, `PUT` | View table statuses or assign guests |
-| `/api/inventory` | `GET`, `POST` | Manage stock, view low stock warnings |
-| `/api/reports/sales/pdf` | `GET` | Export sales report in PDF |
-| `/api/reports/sales/excel`| `GET` | Export sales report in Excel (`.xlsx`) |
-| `/api/ai/chat` | `POST` | Query AI culinary assistant |
+## 👥 Project Contributors
 
----
+This project was collaboratively developed by:
+
+| Contributor | Role | GitHub |
+|---|---|---|
+| Ankit Sankhala | Co-Developer | [@AnkitSankhala07](https://github.com/AnkitSankhala07) |
+| Dhruv Bhavin Shah | Co-Developer | [@Dhruv051105](https://github.com/Dhruv051105) |
+
+Both contributors collaborated on the development of Herb & Spice, a smart restaurant management and POS system.
+
+**Live Demo:** [Herb & Spice](https://herb-and-spice.vercel.app/)
 
 ## 📄 License
 
