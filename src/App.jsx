@@ -19,6 +19,7 @@ import WaiterOrders from './pages/waiter/WaiterOrders';
 import OrderStatus from './pages/customer/OrderStatus';
 import TableSelection from './pages/customer/TableSelection';
 import Login from './pages/auth/Login';
+import BrandLogo from './components/ui/BrandLogo';
 
 // Modern Sage-Green Artisan Landing Page
 const Landing = () => {
@@ -57,9 +58,10 @@ const Landing = () => {
           transition={{ delay: 0.15, duration: 0.8 }}
           className="space-y-3"
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-[#222222]">
-            Herb &amp; Spice<span className="text-[#5A724A]">.</span>
-          </h1>
+          <div className="flex justify-center">
+            <BrandLogo />
+          </div>
+          <h1 className="sr-only">Sparkling Garden Restaurant</h1>
           <p className="text-lg md:text-xl text-[#818181] font-normal max-w-xl mx-auto leading-relaxed">
             Elevating the art of dining through seamless botanical-inspired digital service.
           </p>
@@ -107,7 +109,7 @@ const Landing = () => {
 
           <div className="text-[11px] font-bold text-[#818181] uppercase tracking-widest flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#5A724A]" />
-            Herb &amp; Spice Operating System • v2.4.0
+            Sparkling Garden Operating System • v2.4.0
           </div>
 
           {/* Demo Credentials Card */}

@@ -191,6 +191,28 @@ npm run dev
 
 ---
 
+### 5. Production Deployment
+
+Deploy the frontend as a Vite site on Vercel and the backend as a Node web service on Render.
+
+For Render, set the service root directory to `server`, use `npm install` as the build command, and `npm start` as the start command. Configure these environment variables in Render:
+
+```env
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/smartresto?retryWrites=true&w=majority
+JWT_SECRET=replace_with_a_secure_production_secret
+FRONTEND_URL=https://your-frontend.vercel.app
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+For Vercel, configure:
+
+```env
+VITE_API_URL=https://your-backend.onrender.com/api
+VITE_SOCKET_URL=https://your-backend.onrender.com
+```
+
+The backend health check is available at `/health`. Never commit `.env` files or place backend secrets in Vercel variables.
+
 ## 🔑 Default Demo Credentials
 
 | Role | Login URL | Email | Password |

@@ -21,12 +21,14 @@ connectDB(); // Connect to MongoDB
 
 const app = express();
 const server = http.createServer(app);
+const frontendUrl = process.env.FRONTEND_URL;
 
 // Socket.io Setup (Real-time Engine)
 const io = new Server(server, {
     cors: {
-        origin: "*", // Allow all origins (phone access via IP)
-        methods: ["GET", "POST"]
+        origin: frontendUrl || true,
+        methods: ["GET", "POST"],
+        credentials: Boolean(frontendUrl)
     },
     pingTimeout: 60000,      // Wait 60s for pong before considering disconnected (default 5s is too aggressive)
     pingInterval: 25000,     // Send ping every 25s to keep connection alive
@@ -35,7 +37,10 @@ const io = new Server(server, {
 });
 
 // Apply Middleware
-app.use(cors());
+app.use(cors({
+    origin: frontendUrl || true,
+    credentials: Boolean(frontendUrl)
+}));
 app.use(express.json());
 
 // Inject Socket.io into Request object so Controllers can use it
@@ -59,6 +64,13 @@ app.use('/api/qr', require('./routes/qrRoutes'));
 // Home Route
 app.get('/', (req, res) => {
     res.send('Smart Restaurant API is running...');
+});
+
+app.get('/health', (req, res) => {
+    res.status(200).json({
+        status: 'ok',
+        database: require('mongoose').connection.readyState === 1 ? 'connected' : 'connecting'
+    });
 });
 
 // Error Handling Middleware (Prevent Crashes)

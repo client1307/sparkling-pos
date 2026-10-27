@@ -2,6 +2,7 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import { LayoutDashboard, ClipboardList, BarChart, LogOut, ShoppingCart, UtensilsCrossed, QrCode, BrainCircuit, User } from 'lucide-react';
 import { useState } from 'react';
 import { OfflineBanner } from '../components/ui/OfflineBanner';
+import BrandLogo from '../components/ui/BrandLogo';
 
 export default function DashboardLayout({ role = 'admin' }) {
     const location = useLocation();
@@ -35,14 +36,7 @@ export default function DashboardLayout({ role = 'admin' }) {
             <aside className="w-64 border-r border-[#EBEBEB] bg-white p-6 hidden md:flex flex-col fixed inset-y-0 z-40 shadow-xs">
                 {/* Brand Header */}
                 <div className="mb-8 pl-1">
-                    <div className="flex items-center gap-2.5 mb-1.5">
-                        <div className="w-8 h-8 rounded-full bg-[#5A724A] flex items-center justify-center text-white text-sm shadow-xs">
-                            🌿
-                        </div>
-                        <h2 className="text-xl font-extrabold text-[#222222] tracking-tight">
-                            Herb &amp; Spice
-                        </h2>
-                    </div>
+                    <BrandLogo />
                     <span className="inline-block text-[10px] uppercase font-bold tracking-wider text-[#5A724A] bg-[#BCE2A3]/30 border border-[#BCE2A3] px-2.5 py-0.5 rounded-full ml-1">
                         {role} Workspace
                     </span>
@@ -111,13 +105,8 @@ export default function DashboardLayout({ role = 'admin' }) {
                     {/* Mobile Header */}
                     <header className="mb-6 flex justify-between items-center md:hidden bg-white p-4 rounded-2xl border border-[#EBEBEB] shadow-xs">
                         <div className="flex items-center gap-2.5">
-                            <div className="w-8 h-8 rounded-full bg-[#5A724A] text-white flex items-center justify-center text-sm font-bold">
-                                🌿
-                            </div>
-                            <div>
-                                <h1 className="text-base font-bold text-[#222222]">Herb &amp; Spice</h1>
-                                {user && <p className="text-[10px] text-[#818181]">{user.name} • {user.role}</p>}
-                            </div>
+                            <BrandLogo compact />
+                            {user && <p className="text-[10px] text-[#818181]">{user.name} • {user.role}</p>}
                         </div>
                         <div className="w-2 h-2 rounded-full bg-[#5A724A] animate-pulse" />
                     </header>

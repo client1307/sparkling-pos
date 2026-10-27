@@ -3,6 +3,7 @@ import { OfflineBanner } from '../components/ui/OfflineBanner';
 import { ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { motion } from 'framer-motion';
+import BrandLogo from '../components/ui/BrandLogo';
 
 export default function CustomerLayout() {
     const { tableId } = useParams();
@@ -15,15 +16,7 @@ export default function CustomerLayout() {
             {/* Top Navbar */}
             <nav className="sticky top-0 z-50 border-b border-[#EBEBEB] bg-white/90 backdrop-blur-md px-4 sm:px-5 py-3.5 flex justify-between items-center transition-all">
                 <Link to={tableId ? `/table/${tableId}` : '/'} className="flex items-center gap-2.5 group">
-                    <div className="w-8 h-8 rounded-full bg-[#5A724A] flex items-center justify-center text-white text-sm shadow-xs font-bold group-hover:scale-105 transition-transform">
-                        🌿
-                    </div>
-                    <div>
-                        <h1 className="text-base font-extrabold tracking-tight text-[#222222] leading-none">
-                            Herb &amp; Spice
-                        </h1>
-                        <span className="text-[10px] uppercase tracking-wider text-[#818181] font-semibold">Artisan Kitchen</span>
-                    </div>
+                    <BrandLogo compact className="group-hover:scale-[1.02] transition-transform" />
                 </Link>
 
                 <div className="flex items-center gap-2">
